@@ -9,20 +9,19 @@ app.use(express.json());
 
 app.use('/reels', reelRoutes);
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 4003;
 
-// Connect to MongoDB first, then start server
 const startServer = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log('✅ MongoDB connected');
+    console.log(' MongoDB connected');
 
     app.listen(PORT, () => {
-      console.log(`🚀 Reels Server running on port ${PORT}`);
+      console.log(` Reels Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error('❌ MongoDB connection failed:', error.message);
-    process.exit(1); // يوقف البرنامج لو الداتا بيز مش شغالة
+    console.error(' MongoDB connection failed:', error.message);
+    process.exit(1);
   }
 };
 

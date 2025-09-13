@@ -17,14 +17,14 @@ connectDB();
 app.use('/auth', authRouter);
 
 mongoose.connection.once('connected', () => {
-    console.log('✅ Connected to MongoDB');
+    console.log('Connected to MongoDB');
 
-    const PORT = process.env.PORT || 5002;
+    const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
-        console.log(`🚀 Auth-Server running on port ${PORT}`);
+        console.log(`Auth-Server running on port ${PORT}`);
     });
 });
 
 mongoose.connection.on('error', err => {
-    console.error('❌ MongoDB Connection Error:', err);
+    console.error('MongoDB Connection Error:', err);
 });

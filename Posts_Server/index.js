@@ -16,10 +16,11 @@ connectDB();
 app.use("/posts", checkReq, postsRouter);
 
 mongoose.connection.once("connected", () => {
-    console.log("✅ Connected to MongoDB");
+    console.log("Connected to MongoDB");
 
-    const PORT = process.env.PORT || 5001;
+    const PORT = process.env.PORT || 4002
+;
     app.listen(PORT, () => {
-        console.log(`🚀 Posts-Server running on port ${PORT}`);
+        console.log(` Posts-Server running on port ${PORT}`);
     });
 });
